@@ -1,11 +1,8 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.time.Duration;
-import java.util.Scanner;
 
 /**
  * Project-3 - ProjectName : com-herokuapp
@@ -22,31 +19,16 @@ import java.util.Scanner;
  * 10. Refresh the page.
  * 11. Close the browser
  */
-public class Herokuapp {
-    static String browser = "Chrome";
-    static String baseUrl = "http://the-internet.herokuapp.com/login";
-    static WebDriver driver;
-
+public class ChromeBrowser {
     public static void main(String[] args) {
-        //using Scanner Declaration
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter broswer name : ");
-        String browser = scanner.nextLine();
-        if (browser.equalsIgnoreCase("Chrome")) {
-            driver = new ChromeDriver();
-        } else if (browser.equalsIgnoreCase("Firefox")) {
-            driver = new FirefoxDriver();
-        } else if (browser.equalsIgnoreCase("Edge")) {
-            driver = new EdgeDriver();
-        } else {
-            System.out.println("Wrong Browser name");
-        }
-
-
+        //set up Chrome browser
+        String baseUrl = "http://the-internet.herokuapp.com/login";
+        //Launch the Chrome Browser
+        WebDriver driver = new ChromeDriver();
         //Open the URL
         driver.get(baseUrl);
         //We give Implicit wait to driver
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         //print the title of the page
         System.out.println("The title of the page : " + driver.getTitle());
         //Print the current URL
